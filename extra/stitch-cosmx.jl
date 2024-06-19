@@ -28,18 +28,18 @@ function main()
 
     output_filename = args["output"]
 
-    config_filename = glob("S0/*/RunSummary/*_ExptConfig.txt", path)[1]
+    config_filename = glob("./*/RunSummary/*_ExptConfig.txt", path)[1]
     println("Config filename: ", config_filename)
     width, height, pixel_size = read_image_size(config_filename)
     println("Image size: $(width)μm × $(height)μm")
     println("Pixel size: $(pixel_size)μm")
 
-    fov_filename = glob("S0/*/RunSummary/latest.fovs.csv", path)[1]
+    fov_filename = glob("./*/RunSummary/latest.fovs.csv", path)[1]
     println("FOV filename: ", fov_filename)
     fovs = read_fov_positions(fov_filename)
     println("Coordinates found for $(length(fovs)) FOVs")
 
-    fov_paths = glob("S0/*/AnalysisResults/*/FOV*", path)
+    fov_paths = glob("./*/AnalysisResults/*/FOV*", path)
     println("Transcript info found for $(length(fov_paths)) FOVs")
 
     println("Processing FOVs...")
